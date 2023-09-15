@@ -23,7 +23,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     match args {
         InputModes::Simple(d) => {
-            let value = if d.ticker == "arsusd".to_string() {
+            let value = if d.ticker.eq("arsusd") {
                 request_ars_usd_blue(0f64).await?
             } else if d.ticker == "usdeur" {
                 request_usd_eur(0f64).await?
