@@ -4,8 +4,8 @@ use serde_json::Value;
 use std::error::Error;
 
 pub async fn _get_profile_id() -> Result<String, Box<dyn Error>> {
-    let wise_profiles_url = dotenv!("wise_profiles_url");
-    let wise_token = dotenv!("wise_token");
+    let wise_profiles_url = dotenv!("WISE_PROFILES_URL");
+    let wise_token = dotenv!("WISE_TOKEN");
     let client = reqwest::Client::new();
 
     let result = client

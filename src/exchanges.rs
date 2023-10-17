@@ -16,7 +16,7 @@ pub fn get_commission(provided_commission: f64) -> f64 {
         return provided_commission;
     }
 
-    let commission = dotenv!("current_commission");
+    let commission = dotenv!("CURRENT_COMISSION");
 
     commission.parse::<f64>().unwrap_or(1f64)
 }
@@ -26,7 +26,7 @@ pub async fn request_ars_usd_blue(provided_ars_usd: f64) -> Result<f64, Box<dyn 
         return Ok(provided_ars_usd);
     }
 
-    let usd_rate_provider = dotenv!("blue_usd_provider_url");
+    let usd_rate_provider = dotenv!("BLUE_USD_PROVIDER_URL");
 
     let result: Value = reqwest::get(usd_rate_provider).await?.json().await?;
 
@@ -39,7 +39,7 @@ pub async fn request_usd_eur(provided_usd_eur: f64) -> Result<f64, Box<dyn Error
         return Ok(provided_usd_eur);
     }
 
-    let usd_rate_provider = dotenv!("eur_usd_provider_url");
+    let usd_rate_provider = dotenv!("EUR_USD_PROVIDER_URL");
 
     let result: String = reqwest::get(usd_rate_provider).await?.text().await?;
 
